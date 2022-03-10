@@ -5,6 +5,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import {me} from './store'
 import RequestAWalk from './components/RequestAWalk'
+import SingleDog from './components/SingleDog'
 
 /**
  * COMPONENT
@@ -30,6 +31,7 @@ class Routes extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/requestAWalk" component={RequestAWalk} /> 
+            <Route exact path="/dogs/:id" component={SingleDog} /> 
           </Switch>
         )}
       </div>
