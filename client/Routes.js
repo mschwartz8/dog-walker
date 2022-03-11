@@ -6,6 +6,7 @@ import Home from './components/Home';
 import {me} from './store'
 import RequestAWalk from './components/RequestAWalk'
 import SingleDog from './components/SingleDog'
+import AcceptAWalk from './components/AcceptAWalk';
 
 /**
  * COMPONENT
@@ -32,6 +33,7 @@ class Routes extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/requestAWalk" component={RequestAWalk} /> 
             <Route exact path="/dogs/:id" component={SingleDog} /> 
+            <Route exact path="/acceptAWalk" component={AcceptAWalk} /> 
           </Switch>
         )}
       </div>
