@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { createWalk} from "../store/walk"
 const dogs = [
   {
     id: 1,
@@ -38,9 +38,24 @@ const owners = [
 ];
 
 class RequestAWalk extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    const notes = event.target.notes.value;
+    const startTime = "2022-03-11 15:40:17.897-05"
+    const walkObj = {notes, startTime}
+    console.log(walkObj, "inside event")
+    this.props.createWalk(walkObj)
+  }
+
   render() {
     return (
-      <form id='request-walk-form'>
+    <div>
+      <form id='request-walk-form' onSubmit={this.handleSubmit}>
         <div className='input-walk-form'>
         <h2> Request A Walk Form</h2>
           <input
@@ -49,34 +64,40 @@ class RequestAWalk extends React.Component {
             name='content'
             placeholder='Your name...'
           />
-          <label for='dog'>Choose your dog:</label>
+          {/* <label for='dog'>Choose your dog:</label>
           <select id='dog' name='dog'>
             {dogs.map((dog) => (
               <option value='dog'>{dog.name}</option>
             ))}
-          </select>
-          <label for='start'>Walk date:</label>
+          </select> */}
+          <label htmlFor='start'>Walk date:</label>
           <input
             type='date'
             id='start'
             name='walk-start'
-            value='2022-01-22'
             min='2022-01-01'
             max='2025-12-31'
           />
-          <label for='appt'>Choose a time for your dog's walk:</label>
+          <label htmlFor='appt'>Choose a time for your dog's walk:</label>
           <input type='time' id='walk-time' name='walk-time' required />
           <span className='input-group-btn'>
-            <label for='notes'>Notes for Dog Walk:</label>
+            <label htmlFor='notes'>Notes for Dog Walk:</label>
             <textarea id='notes' name='notes' rows='4' cols='50'></textarea>
-            <button className='btn' type='submit'>
+            <button className='btn' type='submit' >
               Submit!
             </button>
           </span>
         </div>
       </form>
+      </div>
     );
   }
 }
 
-export default RequestAWalk;
+const mapToDispatch = dispatch => {
+  return {
+    createWalk: (walk) => dispatch((createWalk(walk)))
+  }
+}
+
+export default connect(null, mapToDispatch)(RequestAWalk);
