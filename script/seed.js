@@ -25,9 +25,11 @@ async function seed() {
 
   // Create Walkers
   const walkers = await Promise.all([
+    Walker.create({ name: 'Test' }),
     Walker.create({ name: 'CeeCee'}),
     Walker.create({ name: 'DeeDee' }),
     Walker.create({ name: 'FeeFee' })
+    
   ])
 
   // Create Dogs 
@@ -43,12 +45,12 @@ async function seed() {
   await dogs[2].setOwner(owners[1]);
 
   // Create faux Owner walk requests
-  const walks = await Promise.all([
-    Walks.create({ startTime: "13:00", date: "2022-04-28", Notes: "please bring his favorite chew toy that looks like cheeseburger", dogId: 1, walkerId: 1}),
-    Walks.create({ startTime: "14:00", date: "2022-04-29", Notes: "please use her raincoat with the avocadoes doing yoga on it", dogId: 2, walkerId: 1 }),
-    Walks.create({ startTime: "11:00", date: "2022-04-30", Notes: "feel free to give her treats", dogId: 3, walkerId: 3 }),
+  // const walks = await Promise.all([
+  //   // Walks.create({ startTime: "13:00", date: "2022-04-28", Notes: "please bring his favorite chew toy that looks like cheeseburger", dogId: 1, walkerId: 1}),
+  //   // Walks.create({ startTime: "14:00", date: "2022-04-29", Notes: "please use her raincoat with the avocadoes doing yoga on it", dogId: 2, walkerId: 1 }),
+  //   // Walks.create({ startTime: "11:00", date: "2022-04-30", Notes: "feel free to give her treats", dogId: 3, walkerId: 1 }),
 
-  ])
+  // ])
 
   
 

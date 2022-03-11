@@ -11,7 +11,7 @@ const Walks = require('./models/Walks')
 //associations could go here!
 Dog.belongsTo(Owner)
 Owner.hasMany(Dog)
-Dog.belongsToMany(Walker, { through: Walks})
+Dog.belongsToMany(Walker, { through: Walks })
 Walker.belongsToMany(Dog, { through: Walks });
 
 module.exports = {

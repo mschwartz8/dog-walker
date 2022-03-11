@@ -6,10 +6,10 @@ class SingleDog extends React.Component {
     render () {
         return (
             <div>
-                <h1>{dogs[0].name}</h1>
+                <h1 class="dog-title">{dogs[0].name}</h1>
                 <div>
-                <img class='dog-photo' src={dogs[0].imageURL} width={400} height={250} />
-                    <ul>
+                <img class='dog-photo' src={dogs[0].imageURL} width={400} height={250} className="center" />
+                    <ul class="dog-features">
                     <li> Personality: {dogs[0].personality}</li>
                     <li> Breed: {dogs[0].breed}</li>
                     <li> Size: {dogs[0].size}</li>
