@@ -9,17 +9,17 @@ module.exports = router;
 
 router.post("/", async (req, res, next) => {
     try {
-      const dog = await Dog.findOne({ where: { id: 3, ownerId: 2 }});
-      // await dog.addWalk({startTime: "12:00", date: "2022-04-27", Notes: "she's moody today" })
-      const newWalk = await Walks.create({
-        startTime: "11:00",
-        date: "2022-04-28",
-        Notes: "she's feeling good",
-        dogId: 3,
-        walkerId: 1
-      })
+      const dog = await Dog.findOne({ where: { id: 3 }});
+      await dog.createWalk({startTime: "2022-03-14 20:40:17.897 +00:00", notes: "she's moody today" })
+      // const newWalk = await Walks.create({
+      //   startTime: "11:00",
+      //   date: "2022-04-28",
+      //   Notes: "she's feeling good",
+      //   dogId: null,
+      //   walkerId: 1
+      // })
 
-      res.status(201).send(newWalk)
+      res.sendStatus(201)
     } catch (e) {
       next(e);
     }
