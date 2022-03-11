@@ -12,7 +12,7 @@ const walks = [
 class AcceptAWalk extends React.Component {
   render() {
     return (
-      <table>
+      <table class="center">
         <tr>
           <th>Time</th>
           <th>Dog #</th>
