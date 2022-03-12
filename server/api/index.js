@@ -6,6 +6,7 @@ router.use('/requestAWalk', require('./requestAWalk'))
 router.use('/owners', require('./owners'))
 router.use('/dogs', require('./dogs'))
 router.use('/walkers', require('./walker'))
+router.use('/acceptAWAlk', require('./acceptAWalk'))
 
 
 

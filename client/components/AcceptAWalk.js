@@ -1,43 +1,50 @@
 import React from "react";
+import {connect} from 'react-redux'
+import {getAvailableWalks} from '../store/walk'
+import AcceptSingleWalk from "./AcceptSingleWalk";
 
-const walks = [
-  {
-    id: 1,
-    startTime: "2022-03-11 15:40:17.897-05",
-    notes: "please bring his favorite chew toy that looks like cheeseburger",
-    dogId: 1,
-  },
-];
 
 class AcceptAWalk extends React.Component {
+
+  componentDidMount (){
+    this.props.getAvailableWalks()
+  }
   render() {
+   
     return (
-      <table class="center">
-        <tr>
-          <th>Time</th>
-          <th>Dog #</th>
-          <th>Contact</th>
-          <th>Shift</th>
-        </tr>
-        <tr>
-          <td>1:00</td>
-          <td>2</td>
-          <td>Marie</td>
-          <td>
-            <button>Accept</button>
-          </td>
-        </tr>
-        <tr>
-          <td>3:00</td>
-          <td>1</td>
-          <td>Jerry</td>
-          <td>
-          <button>Accept</button>
-          </td>
-        </tr>
+      <table className='center'>
+        <tbody>
+          <tr>
+            <th>Time</th>
+            <th>Dog #</th>
+            <th>Contact</th>
+            <th>Shift</th>
+          </tr>          
+          {this.props.walk.length > 0 && (
+            this.props.walk.map((singleWalk) => {
+              return <AcceptSingleWalk singleWalk={singleWalk}/>
+            })                        
+          )}
+        </tbody>
       </table>
     );
   }
 }
 
-export default AcceptAWalk;
+
+
+const mapStateToProps = (state) => {
+  return {
+    walk: state.walk,
+  }
+}
+
+const mapDispatch = (dispatch) => {
+  return {
+    getAvailableWalks: () => dispatch(getAvailableWalks()) 
+  }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatch)(AcceptAWalk);
