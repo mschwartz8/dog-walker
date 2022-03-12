@@ -10,11 +10,12 @@ class AcceptAWalk extends React.Component {
     this.props.getAvailableWalks()
   }
   render() {
+
    
     return (
       <table className='center'>
         <tbody>
-          <tr>
+          <tr >
             <th>Time</th>
             <th>Dog #</th>
             <th>Contact</th>

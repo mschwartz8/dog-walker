@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createWalk} from "../store/walk"
+import moment from "moment"
+
 const dogs = [
   {
     id: 1,
@@ -46,7 +48,10 @@ class RequestAWalk extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     const notes = event.target.notes.value;
-    const startTime = "2022-03-11 15:40:17.897-05"
+    const time = event.target.walkTime.value;
+    const date = event.target.walkDate.value
+    console.log(time, "time", date, "date")
+    const startTime = "2022-08-14 16:40:17.897-04";
     const walkObj = {notes, startTime}
     console.log(walkObj, "inside event")
     this.props.createWalk(walkObj)
@@ -70,16 +75,16 @@ class RequestAWalk extends React.Component {
               <option value='dog'>{dog.name}</option>
             ))}
           </select> */}
-          <label htmlFor='start'>Walk date:</label>
+          <label htmlFor='date'>Walk date:</label>
           <input
             type='date'
-            id='start'
-            name='walk-start'
+            id='date'
+            name='walkDate'
             min='2022-01-01'
             max='2025-12-31'
           />
           <label htmlFor='appt'>Choose a time for your dog's walk:</label>
-          <input type='time' id='walk-time' name='walk-time' required />
+          <input type='time' id='walk-time' name='walkTime' required />
           <span className='input-group-btn'>
             <label htmlFor='notes'>Notes for Dog Walk:</label>
             <textarea id='notes' name='notes' rows='4' cols='50'></textarea>
