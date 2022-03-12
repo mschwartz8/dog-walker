@@ -48,10 +48,11 @@ class RequestAWalk extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     const notes = event.target.notes.value;
-    const time = event.target.walkTime.value;
-    const date = event.target.walkDate.value
-    console.log(time, "time", date, "date")
-    const startTime = "2022-08-14 16:40:17.897-04";
+    const time = moment(event.target.walkTime.value, 'hh:mm A').format('HH:mm');
+    const date = event.target.walkDate.value;
+    const startTime = `${date} ${time}`
+    console.log(time, "time", startTime, "startTime")
+
     const walkObj = {notes, startTime}
     console.log(walkObj, "inside event")
     this.props.createWalk(walkObj)
