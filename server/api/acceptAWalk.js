@@ -18,10 +18,13 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//
-// where : {
-//   WalkerId: null
-// }, include: {
-//   Model: Dog
+router.put("/", async (req, res, next) => {
+  try {   
+    const walker = await Walker.findOne({where: {email: req.body.email}});
+    const walk = await Walks.findOne({where: {dogId: req.body.dogId, startTime: req.body.startTime }});
+    res.send( await walk.update({walkerId: walker.id}))
 
-// })
+  } catch (e){
+    next(e)
+  }
+})
