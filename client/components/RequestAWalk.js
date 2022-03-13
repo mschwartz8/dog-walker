@@ -51,9 +51,8 @@ class RequestAWalk extends React.Component {
     const time = moment(event.target.walkTime.value, 'hh:mm A').format('HH:mm');
     const date = event.target.walkDate.value;
     const startTime = `${date} ${time}`
-    console.log(time, "time", startTime, "startTime")
-
-    const walkObj = {notes, startTime}
+    const email = event.target.content.value
+    const walkObj = {notes, startTime, email}
     console.log(walkObj, "inside event")
     this.props.createWalk(walkObj)
   }
@@ -68,14 +67,8 @@ class RequestAWalk extends React.Component {
             className='form-control'
             type='text'
             name='content'
-            placeholder='Your name...'
+            placeholder='Your email...'
           />
-          {/* <label for='dog'>Choose your dog:</label>
-          <select id='dog' name='dog'>
-            {dogs.map((dog) => (
-              <option value='dog'>{dog.name}</option>
-            ))}
-          </select> */}
           <label htmlFor='date'>Walk date:</label>
           <input
             type='date'

@@ -18,17 +18,17 @@ async function seed() {
 
   // Create Owners
   const owners = await Promise.all([
-    Owner.create({ name: 'Sheena'}),
-    Owner.create({ name: 'Keenan' }),
-    Owner.create({ name: 'Kels' })
+    Owner.create({ name: 'Sheena', email: "Sheena@gmail.com"}),
+    Owner.create({ name: 'Keenan', email: "Keenan@gmail.com" }),
+    Owner.create({ name: 'Kels', email: "Kels@gmail.com" })
   ])
 
   // Create Walkers
   const walkers = await Promise.all([
-    Walker.create({ name: 'Test' }),
-    Walker.create({ name: 'CeeCee'}),
-    Walker.create({ name: 'DeeDee' }),
-    Walker.create({ name: 'FeeFee' })
+    Walker.create({ name: 'Test', email: "test@gmail.com" }),
+    Walker.create({ name: 'CeeCee', email: "CeeCee@gmail.com"}),
+    Walker.create({ name: 'DeeDee', email: "DeeDee@gmail.com" }),
+    Walker.create({ name: 'FeeFee', email: "FeeFee@gmail.com" })
     
   ])
 
@@ -47,8 +47,8 @@ async function seed() {
   // Create faux Owner walk requests
   const walks = await Promise.all([
     Walks.create({ startTime: "2022-03-11 20:40:17.897 +00:00", notes: "please bring his favorite chew toy that looks like cheeseburger", dogId: 1, walkerId: 1}),
-    Walks.create({ startTime: "2022-03-12 20:40:17.897 +00:00", notes: "please use her raincoat with the avocadoes doing yoga on it", dogId: 2, walkerId: 1 }),
-    Walks.create({ startTime: "2022-03-13 20:40:17.897 +00:00", notes: "feel free to give her treats", dogId: null , walkerId: 1 }),
+    Walks.create({ startTime: "2022-03-12 20:40:17.897 +00:00", notes: "please use her raincoat with the avocadoes doing yoga on it", dogId: 2, walkerId: null }),
+    Walks.create({ startTime: "2022-03-13 20:40:17.897 +00:00", notes: "feel free to give her treats", dogId: null , walkerId: null }),
 
   ])
 

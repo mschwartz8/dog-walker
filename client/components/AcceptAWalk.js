@@ -17,8 +17,7 @@ class AcceptAWalk extends React.Component {
         <tbody>
           <tr >
             <th>Time</th>
-            <th>Dog #</th>
-            <th>Contact</th>
+            <th>Walker Email</th>
             <th>Shift</th>
           </tr>          
           {this.props.walk.length > 0 && (

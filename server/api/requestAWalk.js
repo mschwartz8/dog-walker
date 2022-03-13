@@ -9,8 +9,10 @@ module.exports = router;
 
 router.post("/", async (req, res, next) => {
     try {
-      const dog = await Dog.findOne({ where: { id: 3 }});
-      await dog.createWalk({startTime: req.body.startTime, notes: req.body.notes })
+      const owner = await Owner.findOne({where: {email: req.body.email}})
+      let ownerId = owner.id
+      const dog = await Dog.findOne({ where: { ownerId: ownerId }});
+      await dog.createWalk({startTime: req.body.startTime, notes: req.body.notes, dogId: dog.id })
       res.sendStatus(201)
     } catch (e) {
       next(e);

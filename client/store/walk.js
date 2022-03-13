@@ -22,7 +22,7 @@ const getWalks = (walks) => {
 // thunk creator 
 export const createWalk = (walkObj) => async (dispatch) => {
     try {
-        const walk = {startTime: walkObj.startTime , notes: walkObj.notes}
+        const walk = {startTime: walkObj.startTime , notes: walkObj.notes, email: walkObj.email}
         console.log(walk, "inside thunk")
         const {data : created } = await axios.post('/api/requestAWalk', walk)
         dispatch(newWalkRequest(created))
