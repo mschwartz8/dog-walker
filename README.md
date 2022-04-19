@@ -12,9 +12,9 @@ Developed with:
 * PostgreSQL
 * React
 
-<img src="https://user-images.githubusercontent.com/42093190/164115103-f7d85b02-a92a-4650-ac09-ea91ec95dad7.png" width="450" height="250"/>
+<img src="https://user-images.githubusercontent.com/42093190/164115103-f7d85b02-a92a-4650-ac09-ea91ec95dad7.png" width="500" height="300"/>
 
-<img src="https://user-images.githubusercontent.com/42093190/164115839-0001a447-8952-4cd0-aabd-06741b53c377.png" width="450" height="250" />
+<img src="https://user-images.githubusercontent.com/42093190/164115839-0001a447-8952-4cd0-aabd-06741b53c377.png" width="500" height="300" />
  
 
 
