@@ -3,18 +3,13 @@ const db = require('../db')
 
 const Walks = db.define('walks', {
     startTime : {
-        type: Sequelize.STRING,
-        TimeCol: {
-            type: Sequelize.TIME
-          }
+        type: Sequelize.DATE,
     },
-    date : {
-        type: Sequelize.DATEONLY
-    },
-    Notes: {
+    notes: {
         type: Sequelize.TEXT
 
-    }
+    },
+
 })
 
 module.exports = Walks

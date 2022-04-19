@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createWalk} from "../store/walk"
+import moment from "moment"
 
 const dogs = [
   {
@@ -38,45 +40,63 @@ const owners = [
 ];
 
 class RequestAWalk extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    const notes = event.target.notes.value;
+    const time = moment(event.target.walkTime.value, 'hh:mm A').format('HH:mm');
+    const date = event.target.walkDate.value;
+    const startTime = `${date} ${time}`
+    const email = event.target.content.value
+    const walkObj = {notes, startTime, email}
+    console.log(walkObj, "inside event")
+    this.props.createWalk(walkObj)
+  }
+
   render() {
     return (
-      <form id='request-walk-form'>
+    <div>
+      <form id='request-walk-form' onSubmit={this.handleSubmit}>
         <div className='input-walk-form'>
         <h2> Request A Walk Form</h2>
           <input
             className='form-control'
             type='text'
             name='content'
-            placeholder='Your name...'
+            placeholder='Your email...'
           />
-          <label for='dog'>Choose your dog:</label>
-          <select id='dog' name='dog'>
-            {dogs.map((dog) => (
-              <option value='dog'>{dog.name}</option>
-            ))}
-          </select>
-          <label for='start'>Walk date:</label>
+          <label htmlFor='date'>Walk date:</label>
           <input
             type='date'
-            id='start'
-            name='walk-start'
-            value='2022-01-22'
+            id='date'
+            name='walkDate'
             min='2022-01-01'
             max='2025-12-31'
           />
-          <label for='appt'>Choose a time for your dog's walk:</label>
-          <input type='time' id='walk-time' name='walk-time' required />
+          <label htmlFor='appt'>Choose a time for your dog's walk:</label>
+          <input type='time' id='walk-time' name='walkTime' required />
           <span className='input-group-btn'>
-            <label for='notes'>Notes for Dog Walk:</label>
+            <label htmlFor='notes'>Notes for Dog Walk:</label>
             <textarea id='notes' name='notes' rows='4' cols='50'></textarea>
-            <button className='btn' type='submit'>
+            <button className='btn' type='submit' >
               Submit!
             </button>
           </span>
         </div>
       </form>
+      </div>
     );
   }
 }
 
-export default RequestAWalk;
+const mapToDispatch = dispatch => {
+  return {
+    createWalk: (walk) => dispatch((createWalk(walk)))
+  }
+}
+
+export default connect(null, mapToDispatch)(RequestAWalk);
