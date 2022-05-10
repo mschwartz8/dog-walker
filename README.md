@@ -1,4 +1,24 @@
-# FS-App-Template
+# Dog Walker
+
+Dog Walker is a web application that allows dog owners to find dog walkers to walk their dogs.
+
+For users without an account, Dog owners can request a dog walk through the request a walk form using their email as a unique identifier, and Dog Walkers can accept walk requests from dog owners using their emails as a unique identifier. 
+
+## Technologies
+
+Developed with:
+* Node.js
+* Express
+* PostgreSQL
+* React
+
+<img src="https://user-images.githubusercontent.com/42093190/164115839-0001a447-8952-4cd0-aabd-06741b53c377.png" width="550" height="300" />
+
+<img src="https://user-images.githubusercontent.com/42093190/164115103-f7d85b02-a92a-4650-ac09-ea91ec95dad7.png" width="550" height="300"/>
+
+
+ 
+
 
 ## Setup
 
