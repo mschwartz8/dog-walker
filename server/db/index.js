@@ -16,6 +16,8 @@ Walker.hasMany(Walks)
 Walks.belongsTo(Dog);
 Dog.hasMany(Walks)
 
+// Associations with original many-to-many relationships that do not fit current product feature design :
+
 // Dog.belongsToMany(Walker, { through: Walks, foreignKey: { name: "dogId", allowNull: false} })
 // Walker.belongsToMany(Dog, { through: Walks });
 
