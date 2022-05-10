@@ -5,7 +5,6 @@ import AcceptSingleWalk from "./AcceptSingleWalk";
 
 
 class AcceptAWalk extends React.Component {
-
   componentDidMount (){
     this.props.getAvailableWalks()
   }
@@ -18,7 +17,7 @@ class AcceptAWalk extends React.Component {
           <tr >
             <th>Time</th>
             <th>Walker Email</th>
-          </tr>          
+          </tr>  
           {this.props.walk.length > 0 && (
             this.props.walk.map((singleWalk) => {
               return <AcceptSingleWalk singleWalk={singleWalk}/>
